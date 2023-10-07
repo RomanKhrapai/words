@@ -428,8 +428,8 @@ const addItem = () => {
 
     state.wordsList.push({
         id: findId(state.wordsList.map((item) => item.id)),
-        firstWord,
-        secondWord,
+        firstWord: !state.isChangeLang ? firstWord : secondWord,
+        secondWord: state.isChangeLang ? firstWord : secondWord,
         checked: false,
     });
 
