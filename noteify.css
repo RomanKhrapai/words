@@ -1,0 +1,32 @@
+.noteify{
+    display: inline-block;
+    position: absolute;
+     top:-50px;
+     left: 50%;  
+    right: 1%;
+    background-color: rgba(213, 211, 206, 0.784);
+    height: 40px;
+   min-width: 200px;
+   max-width: 600px;
+    transition-duration: 1s;
+    transform: translate(-50%,-50px);
+    border-radius: 10px;
+    border: solid #c48e29;
+    text-align: center;
+    padding: 15px    ;
+    font-size: 18px;
+    pointer-events: none;
+  }
+  .noteify-active{
+    transition-duration: 1s;
+    transform: translate(-50%,50px);
+      }
+  .noteify-error{
+    background-color: rgba(255, 0, 0, 0.867);
+  }
+  .noteify-message{
+     background-color: rgba(255, 183, 0, 0.884);
+  }
+  .noteify-success{
+        background-color: rgba(68, 255, 0, 0.884);
+  }
