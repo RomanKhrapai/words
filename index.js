@@ -35,7 +35,6 @@ const state = {
     cardIndex: 0,
     cardList: [],
 };
-localStorage.saveState(state);
 
 const reverseWord = (key) => {
     if (state.isChangeLang)
