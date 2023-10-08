@@ -31,17 +31,7 @@ const state = {
     firstLang: "UK",
     secondLang: "EN",
     isChangeLang: false,
-    wordsList: [
-        { id: "1", firstWord: "кіт", secondWord: "cat", checked: false },
-        { id: "2", firstWord: "собака", secondWord: "dog", checked: false },
-        { id: "3", firstWord: "курка", secondWord: "chiken", checked: false },
-        { id: "4", firstWord: "дерево", secondWord: "tree", checked: false },
-        { id: "5", firstWord: "лев", secondWord: "lion", checked: false },
-        { id: "6", firstWord: "будинок", secondWord: "hous", checked: false },
-        { id: "7", firstWord: "шлях", secondWord: "way", checked: false },
-        { id: "8", firstWord: "дорога", secondWord: "road", checked: false },
-        { id: "9", firstWord: "автомобіль", secondWord: "car", checked: false },
-    ],
+    wordsList: [],
     cardIndex: 0,
     cardList: [],
 };
@@ -454,8 +444,10 @@ const searchTranslation = () => {
             "error"
         );
     }
+    const firstLang = state.isChangeLang ? state.firstLang : state.secondLang;
+    const secondLang = !state.isChangeLang ? state.firstLang : state.secondLang;
 
-    getTranslation(searchRequest, state.firstLang, state.secondLang)
+    getTranslation(searchRequest, firstLang, secondLang)
         .then((data) => {
             if (data[0]) {
                 renderTranslationOptions(data[0]);

@@ -1,18 +1,12 @@
 @import url("./noteify.css");
 
-body{
-
-}
-
 .page{
     width: 600px;  
       margin: auto;
 }
 
 .header{
- 
     background-color: #9E9E9E;
-   
 }
 
 .nav{
@@ -24,7 +18,6 @@ body{
     align-items: center;
     display: flex;
     padding: 5px;
-
 }
 .nav-btn:hover{
     transform: scale(1.02);
