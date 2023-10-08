@@ -1,5 +1,5 @@
 export const saveState = (state) => {
-    const { firstLang, secondLang, isRandomWord = false, wordsList } = state;
+    const { firstLang, secondLang, isChangeLang = false, wordsList } = state;
 
     if (firstLang) {
         localStorage.setItem("firstLang", firstLang);
@@ -8,7 +8,7 @@ export const saveState = (state) => {
         localStorage.setItem("secondLang", secondLang);
     }
 
-    localStorage.setItem("isRandomWord", isRandomWord);
+    localStorage.setItem("isChangeLang", isChangeLang);
 
     if (wordsList) {
         localStorage.setItem("wordsList", JSON.stringify(wordsList));
