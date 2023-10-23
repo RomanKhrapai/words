@@ -7,7 +7,7 @@ import { COUNTRY_TO_FLAG } from "./defaultValues.js";
 const Header = Vue.createApp({
     /* параметри кореневого компонента */
 });
-Header.mount('#heder');
+Header.mount("#heder");
 
 const refs = {
     btnSelectTabList: document.querySelector("[data-list-open]"),
@@ -156,7 +156,7 @@ const renderList = () => {
         .forEach((elem) =>
             elem.addEventListener("click", (e) => {
                 state.wordsList = state.wordsList.filter(
-                    (item) => item.id !== e.target.dataset.listItemRemoveIndex
+                    (item) => item.id !== +e.target.dataset.listItemRemoveIndex
                 );
                 localStorage.saveState({ wordsList: state.wordsList });
                 renderList();
@@ -181,9 +181,8 @@ const renderList = () => {
                 );
             } else {
                 const checkedItem = state.wordsList.find(
-                    (item) => item.id === e.currentTarget.dataset.listItemId
+                    (item) => item.id === +e.currentTarget.dataset.listItemId
                 );
-
                 checkedItem.checked = !checkedItem.checked;
             }
 
@@ -420,8 +419,10 @@ const addItem = () => {
         return noteify("недопустиме значення опису", "error");
     }
 
+    const id = findId(state.wordsList.map((item) => item.id));
+
     state.wordsList.push({
-        id: findId(state.wordsList.map((item) => item.id)),
+        id: id === -Infinity ? 1 : id,
         firstWord: !state.isChangeLang ? firstWord : secondWord,
         secondWord: state.isChangeLang ? firstWord : secondWord,
         checked: false,
@@ -448,6 +449,7 @@ const searchTranslation = () => {
             "error"
         );
     }
+
     const firstLang = state.isChangeLang ? state.firstLang : state.secondLang;
     const secondLang = !state.isChangeLang ? state.firstLang : state.secondLang;
 

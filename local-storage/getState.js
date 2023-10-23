@@ -1,6 +1,6 @@
 export const getState = () => {
-    const firstLang = localStorage.getItem("firstLang") ?? null;
-    const secondLang = localStorage.getItem("secondLang") ?? null;
+    const firstLang = localStorage.getItem("firstLang") ?? "UK";
+    const secondLang = localStorage.getItem("secondLang") ?? "EN";
 
     const isChangeLang =
         JSON.parse(localStorage.getItem("isChangeLang")) ?? true;
