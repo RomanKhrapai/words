@@ -4,6 +4,11 @@ import { validatorText, debounce, findId } from "./help.js";
 import { noteify } from "./noteify.js";
 import { COUNTRY_TO_FLAG } from "./defaultValues.js";
 
+const Header = Vue.createApp({
+    /* параметри кореневого компонента */
+});
+Header.mount('#heder');
+
 const refs = {
     btnSelectTabList: document.querySelector("[data-list-open]"),
     btnSelectTabAdd: document.querySelector("[data-add-item]"),
